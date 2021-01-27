@@ -20,6 +20,9 @@
   "homepage": "https://github.com/Junkier/nodejs-interview#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0"
+    "express-handlebars": "^5.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
   }
 }
