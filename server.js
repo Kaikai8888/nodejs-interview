@@ -9,6 +9,10 @@ app.set('view engine', 'hbs')
 
 app.use(express.static('application'))
 app.use(router)
+app.use((error, req, res, next) => {
+    console.log(error)
+    res.status(404).json({ status: 'error', message: 'Error occurs. Please try again later.' })
+})
 
 
 app.listen(8088, () => {
