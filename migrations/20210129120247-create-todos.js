@@ -7,7 +7,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        field: 'to_do_id'
       },
       subject: {
         type: Sequelize.STRING,
@@ -31,10 +30,6 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
-      modified_time: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -42,7 +37,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        field: 'modified_time'
       },
 
     });
