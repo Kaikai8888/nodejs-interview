@@ -45,8 +45,7 @@ router.get("/to-do-list/detail/:to_do_id", async (req, res) => {
   try {
     const id = Number(req.params.to_do_id)
     if (!id) return res.redirect('back')
-    const todo = await Todo.findOne({
-      where: { id },
+    const todo = await Todo.findByPk(id, {
       raw: true, attributes: {
         include: [['id', 'to_do_id'], ['updatedAt', 'modified_time']],
         exclude: ['id', 'updatedAt', 'createdAt']
@@ -82,9 +81,9 @@ router.put("/to-do-list/detail/:to_do_id", async (req, res, next) => {
       return res.json({ status: "success", message: "ok." })
     }
     //edit
-    const todo = await Todo.findOne({ where: { id: to_do_id } })
+    const todo = await Todo.findByPk(to_do_id)
     if (!todo) return res.status(404).json({ status: "error", message: "Todo not found. If you want to create new todo, please select 'create' mode." })
-    await todo.update({ id: to_do_id, subject, reserved_time, brief, level, author })
+    await todo.update({ subject, reserved_time, brief, level, author })
     return res.json({ status: "success", message: "ok." })
   } catch (error) {
     next(error)
