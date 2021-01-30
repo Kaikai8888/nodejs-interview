@@ -1,12 +1,14 @@
 const express = require('express');
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 const app = express();
 const router = require('./routes')
 
 app.engine('hbs', exphbs({ extname: 'hbs' }))
 app.set('views', __dirname + '/application/views')
 app.set('view engine', 'hbs')
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('application'))
 app.use(router)
 app.use((error, req, res, next) => {
