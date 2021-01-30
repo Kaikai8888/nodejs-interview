@@ -3,7 +3,7 @@ const router = express.Router()
 const { Todo } = require('../models')
 
 router.get("/", (req, res) => {
-  res.redirect("login")
+  res.redirect("/welcome")
 });
 
 router.get("/login", (req, res) => {
